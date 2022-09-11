@@ -1,0 +1,131 @@
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+
+.formControle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    font-family: 'Lato', sans-serif;
+    border: 1px solid  black;
+    box-shadow: 0 1px;
+    border-radius: 5px;
+}
+
+.imageDiv {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.imageDiv label{
+
+    font-size: 1.03em;
+    font-weight: 500;
+    color: black;
+}
+
+.imageDiv input,.descriptionDiv input ,.priceDiv input ,.titleDiv input{
+
+    margin-top: 12px;
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: inherit;
+}
+.imageDiv input::placeholder ,.descriptionDiv input::placeholder ,.priceDiv input::placeholder ,.titleDiv input::placeholder{
+
+    color: black;
+    font-weight: 500;
+    text-align: center;
+    
+}
+
+
+.descriptionDiv {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.descriptionDiv label{
+
+    font-size: 1.03em;
+    font-weight: 500;
+    color: black;
+}
+
+
+
+.priceDiv{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.priceDiv label{
+
+    font-size: 1.03em;
+    font-weight: 500;
+    color: black;
+}
+
+
+
+.titleDiv{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.titleDiv label{
+
+    font-size: 1.03em;
+    font-weight: 500;
+    color: black;
+}
+
+
+
+.categoryDiv {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.categoryDiv label{
+
+    font-size: 1.03em;
+    font-weight: 500;
+    color: black;
+}
+
+.buttonDiv{
+
+    padding: 15px;
+    background-color: rgb(197, 219, 218);
+    color: black;
+    font-size: 1.03em;
+    border-radius: 7%;
+    font-weight: 500;
+    margin-top: 25px;
+    border: none;
+    box-shadow: 3px 3px rgb(209, 221, 220) ;
+    cursor: pointer;
+}
+
+
+.errorDiv{
+
+    color: red;
+    font-weight: 400;
+    font-size: 1.1em;
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    letter-spacing: 2px;
+
+}

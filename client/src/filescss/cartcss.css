@@ -1,0 +1,60 @@
+
+
+.cartProducts{
+
+    display:flex;
+    justify-content: space-between;
+    padding: 20px ;
+    margin: 20px;
+    border-bottom: 1px solid #000;
+    
+}
+
+.cardPart1{
+
+    display: flex;
+    
+
+
+}
+
+.cardPart1 .cardcategorydescription>div{
+
+    
+    padding: 10px;
+    
+}
+.cardPart1 .cardcategorydescription .category{
+
+    font-weight: 500;
+
+}
+
+.cardImage img{
+
+    width: 85px;
+    height: 85px;
+    padding: 10px;
+
+}
+
+.cartPart2{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.MuiDrawer-paperAnchorLeft{
+
+    width:1000px;
+}
+
+
+.emptyDrawer{
+
+    text-align: center;
+    position: relative;
+    top:30%;
+
+}

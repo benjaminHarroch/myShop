@@ -1,0 +1,73 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+.containeNavBar{
+
+
+    position: sticky;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Lato', sans-serif
+
+
+}
+
+
+.navigateButtonNavBar{
+
+    padding: 12px;
+    font-size: 1.05em;
+    font-weight: 600;
+    border: none;
+    background-color: whitesmoke;
+    color: cornflowerblue;
+    cursor: pointer;
+}
+
+.navigateButtonNavBar:hover{
+
+    border-bottom: 2px solid cornflowerblue;
+    opacity: 0.8;
+
+}
+
+.iconShopingCart{
+
+    position: fixed;
+    left: 20px;
+
+}
+
+.number{
+
+    
+    position: relative;
+    font-weight: 600;
+    color: cornflowerblue;
+    border: 2.5px solid cornflowerblue;
+    background-color: cornsilk;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 20px;
+    left: 44px;
+}
+
+
+.clockNavBar{
+
+    font-size: 1.05em;
+    font-weight: 600;
+    display: flex;
+    position: relative;
+    left: 600px;
+    color: cornflowerblue;
+
+}
