@@ -4,32 +4,33 @@ const express = require('express');
 const mongoose = require('mongoose');
 const serverResponse = require("./utilsServer/serverResponse");
 let cors = require("cors");
-const array=require('./utilsServer/arraysValidationKeys')
+const jwt =require('jsonwebtoken');
+const array=require('./utilsServer/arraysValidationKeys');
+const ProductsModel =require('./models/productsModel');
+const UserModel =require('./models/User');
+const auth = require("./controllers/auth");
 
-console.log(array.arraysValidationKeys);
+
+
+console.log('model,',UserModel);
 
 require("dotenv").config();
 
-//express functionally get to app this is a shorthand
+//express function get to app this is a shorthand
 const app =express();
 
 app.use(express.json());
 app.use(express.static("client/build"));
 app.use(cors());
 
-
+//use of a midlewire for authetication system
+app.use('/api/auth',auth);
 
 //mongoose.connect('mongodb://localhost:27017/Products');
 
-const ProductsModel = mongoose.model('Products',{
-    
-                category:{type:String,required:true},
-                description:{type:String,required:true},
-                image:{type:String,required:true},
-                price:{type:Number,required:true},
-                title:{type:String,required:true},
 
-});
+const {DB_USER,DB_PASS,DB_HOST,DB_NAME,PORT,KEY_SECRETE}=process.env;
+
 
 
 app.get("/api", async (req,res)=>{
@@ -68,17 +69,39 @@ app.get("/products/:productsId", async (req,res)=>{
 app.post("/api/product", async (req,res)=>{
 
 
+    
     try{
 
-        console.log({...req.body});
-        //build new products from the client side with a json model
-        const newproductsFromClient= {...req.body};
-        //get the newproduct with the speific model 
-        const newProduct= new ProductsModel(newproductsFromClient);
-        //save the newproducts with the specific model
-        await newProduct.save();
+        const token=req.headers['x-access-token'];
+
+        if(!token){
+
+            serverResponse(res,500,{message:"no token"});
+        }else{
+
+            jwt.verify(token,KEY_SECRETE,async (err)=>{
+
+
+                if(err){
+                   return serverResponse(res,500,{message:"the token is not good"});
+                }
+
+
+                console.log({...req.body});
+                //build new products from the client side with a json model
+                const newproductsFromClient= {...req.body};
+                //get the newproduct with the speific model 
+                const newProduct= new ProductsModel(newproductsFromClient);
+                //save the newproducts with the specific model
+                await newProduct.save();
+            
+                return serverResponse(res,200,newProduct);
+
+
+            })
+
+        }
     
-        serverResponse(res,200,newProduct);
 
     }catch(e){
 
@@ -152,6 +175,24 @@ app.delete("/api/products/:productsID", async (req,res)=>{
 })
 
 
+app.get("/RegisterApi", async (req,res)=>{
+
+
+    try{
+        
+         const allUsers=await UserModel.find({}) ;
+         serverResponse(res,200,allUsers);
+
+    }catch(e){
+
+        console.log(e);
+        serverResponse(res,500,{message:"internal errorrrr occured"+e});
+    }
+  
+
+})
+
+
 //last rout is the * rout for all the request with no matching rout will come to this rout and render the index.html 
 app.get('*',(req,res)=>{
 
@@ -161,9 +202,9 @@ app.get('*',(req,res)=>{
  
  })
 
- console.log("pdsg",process.env)
 
- const {DB_USER,DB_PASS,DB_HOST,DB_NAME,PORT}=process.env;
+
+ console.log("pdsg",process.env);
 
 
  //connet mongo atlas for deploying

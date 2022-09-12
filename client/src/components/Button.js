@@ -47,7 +47,7 @@ export const Button = ({id ,data}) => {
 
     <button  id={id} onClick={(e)=>{
        
-        //console.log('id:',e.target.id);
+        console.log('id:',e.target.id);
         foundAndAddProductToCart(e.target.id);
 
     }}> add </button>

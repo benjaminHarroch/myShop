@@ -7,6 +7,8 @@ import  CarriageContext from '../context/CarriageContext';
 import Formcontrole from './FormControle';
 import ProductDetaile from './ProductDetaile';
 import NavBar from './NavBar';
+import Register from './Register';
+import Login from './Login'
 
 const Routing = () => {
 
@@ -61,6 +63,8 @@ const Routing = () => {
         <Route path='/' element={<App tempData={tempData} settempData={settempData} options={options} data={data} setData={setData}/>} />
         <Route path='Formcontrole' element={<Formcontrole options={options} data={data} setData={setData}/>} />
         <Route path='/products/:id' element={<ProductDetaile data={data}/>} />
+        <Route path='/Register' element={<Register />} />
+        <Route path='/login' element={<Login />} />
 
      </Routes>
    </BrowserRouter>

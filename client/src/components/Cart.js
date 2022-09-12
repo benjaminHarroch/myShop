@@ -2,6 +2,7 @@ import React from 'react'
 import { useContext ,useState } from 'react'
 import CarriageContext from '../context/CarriageContext';
 import  '../filescss/cartcss.css'
+import axios from 'axios';
 
 
 ///// naterial UI
@@ -29,6 +30,7 @@ function Cart() {
 
      function searchInBucketandDelete(elementId){
 
+
         let foundIndex=carriagekey.findIndex((item)=>item.element._id==elementId);
         console.log('asfsafas',foundIndex);
         if(foundIndex===-1){
@@ -39,6 +41,7 @@ function Cart() {
   
           //if you want copy the array  so copy them in a temp variable 
           //and after that add to setCarriage
+          
           const newCarriage = [...carriagekey]
           newCarriage.splice(foundIndex,1);
           setcarriagekey(newCarriage)

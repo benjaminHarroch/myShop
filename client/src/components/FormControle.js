@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "../filescss/FormControle.css"
+import axios from 'axios';
 //import TextField from '@mui/material/TextField';
 
 //material ui
@@ -8,8 +9,6 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { color } from '@mui/system';
-
 
 
 
@@ -24,37 +23,63 @@ import { color } from '@mui/system';
     const [description,setDescription] =useState('');
     const [price,setPrice] =useState('');
     const [title,setTitle] =useState('');
-    const [error,setError] =useState('');
+    const [error,setError] =useState({
+
+        errorExist:false,
+        error:''
+
+    });
     ///need the flage because set state work like a asyncronise system and before he finisih to set the state
     //the code continue rapidly and finish to push a new product into the state.
+
     let flage =false;
 
     function handleChange(){
 
-        setError('');
-        
+        console.log(window.localStorage.getItem("x-access-token"));
+
+        setError({
+            errorExist:false,
+            error:''
+        });
 
         if(description.length===0||title.length===0||image.length===0||price.length===0||category.length===0||category==="/"){
 
-            setError("   one of the filed is empty");
+            setError({
+                errorExist:true,
+                error:"   one of the filed is empty"
+            });
             flage=true;
         }
         if(description.length>30){
 
-            setError((prev)=>prev + " , description field is to longer.");
+            setError((prev)=>({
+                errorExist:true,
+                error:prev.error+ "   the description is much longer"
+            }));
+
             flage=true;
         }
         if(title.length>30){
 
-            setError((prev)=>prev + ",  title field is to longer.");
+            setError((prev)=>({
+                errorExist:true,
+                error:prev.error+ "  the title is much longer"
+            }));
             flage=true;
         }
         if(!(price>=0&&price<10000)){
             
             if(isNaN(price)){
-                setError((prev)=>prev + ", price recaive only number.");
+                setError((prev)=>({
+                    errorExist:true,
+                    error:prev.error+ "  the price is compromise only number"
+                }));
             }else{
-             setError((prev)=>prev + ", please cheke a price cheapoer");
+                setError((prev)=>({
+                    errorExist:true,
+                    error:prev.error+ "  the price is higher"
+                }));
             }
             flage=true;
         }
@@ -67,17 +92,39 @@ import { color } from '@mui/system';
         if(flage){
             return ;
         }else{
+
             let newProducts={
                 category:category,
                 description:description,
-                id:data.length+1,
                 image:image,
                 price:price,
                 title:title
             }
-            //you cant use push because push return The new length property of the object
-            setData((prev)=>[...prev,newProducts]);
-            setError("you success to upload a new product");
+
+            
+            console.log(window.localStorage.getItem("x-access-token"));
+            axios.post(`http://localhost:7000/api/product`, newProducts,{ headers: {"x-access-token":`${window.localStorage.getItem("x-access-token")}`}})
+            .then(res => {
+
+                //you cant use push because push return The new length property of the object
+                setData((prev)=>[...prev,newProducts]);
+                setError({
+                         errorExist:false,
+                         error:"you succes to add a products"
+                 });
+
+              console.log('res',res);
+              console.log('res.data',res.data);
+
+            }).catch((e=>{
+
+                     console.log('error permision',e)
+                     setError({
+                     errorExist:true,
+                     error:"you have noi permission for add products pleasse get login"
+                     })
+            }));
+
         }
         
         setCategory("/");
@@ -96,6 +143,28 @@ import { color } from '@mui/system';
         console.log(title)
         console.log(price)
     },[image,category,description,title,price]);
+
+    /*
+    const headers = {
+  'Content-Type': 'application/json',
+  'Authorization': 'JWT fefege...'
+}
+
+axios.post(Helper.getUserAPI(), data, {
+    headers: headers
+  })
+  .then((response) => {
+    dispatch({
+      type: FOUND_USER,
+      data: response.data[0]
+    })
+  })
+  .catch((error) => {
+    dispatch({
+      type: ERROR_FINDING_USER
+    })
+  })
+  */
     
 
     return(
@@ -159,7 +228,7 @@ import { color } from '@mui/system';
                 </div>
 
                 <div className='errorDiv'>
-                    <p style={!flage ? {color:"green"} : { color: "red"}}>{error}</p>
+                    <p style={!error.errorExist ? {color:"green"}:{color:"red"}}>{error.error}</p>
                 </div>
 
         </div>
@@ -171,13 +240,3 @@ import { color } from '@mui/system';
 
  export default Formcontrole;
 
-
-
- /*
- <div className='categoryDiv'>
-
-                   <label>choose a category : </label>
-                   <select onChange={(e)=>setCategory(e.target.value)}>
-                   <option value="/"  >--------</option>
-                   {options?.map((item)=><option value={`${item}`}>{item}</option>)}
-                   */
