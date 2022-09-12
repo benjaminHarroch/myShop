@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import CarriageContext from '../context/CarriageContext';
-//import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import Popup from './Popup'
+
 
 
 
@@ -8,6 +9,8 @@ export const Button = ({id ,data}) => {
 
 
   const {carriagekey,setcarriagekey}=useContext(CarriageContext);
+
+
 
    function searchInCarriage(element){
 
@@ -46,9 +49,9 @@ export const Button = ({id ,data}) => {
   return (
 
     <button  id={id} onClick={(e)=>{
-       
+ 
         console.log('id:',e.target.id);
-        foundAndAddProductToCart(e.target.id);
+        foundAndAddProductToCart(e.target.id) 
 
     }}> add </button>
     

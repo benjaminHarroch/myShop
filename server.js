@@ -68,7 +68,6 @@ app.get("/products/:productsId", async (req,res)=>{
 
 app.post("/api/product", async (req,res)=>{
 
-
     
     try{
 
@@ -101,14 +100,11 @@ app.post("/api/product", async (req,res)=>{
             })
 
         }
-    
-
     }catch(e){
 
         console.log(e);
         serverResponse(res,500,{message:"internal error occured"+e});
     }
-  
 
 })
 
@@ -198,11 +194,8 @@ app.get('*',(req,res)=>{
 
     // console.log(__dirname)
      res.sendFile(`${__dirname}/client/public/index.html`)
-   
  
  })
-
-
 
  console.log("pdsg",process.env);
 

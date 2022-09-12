@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState ,useEffect}  from 'react';
 import { BrowserRouter, Route, Routes ,Link } from 'react-router-dom'
+import axios from 'axios';
 import App from '../App';
 import  Cart  from './Cart';
 import  CarriageContext from '../context/CarriageContext';
@@ -18,6 +19,22 @@ const Routing = () => {
     const [tempData,settempData]=useState([]);
     const [data,setData]=useState([]);
     const [options,setOptions]=useState(null);
+    const [user,setUser] =useState('');
+
+    async function getNameFromUser(){
+
+
+      axios.post(`http://localhost:7000/api/auth/getUserName`, {},{ headers: {"x-access-token":`${window.localStorage.getItem("x-access-token")}`}})
+            .then(res => {
+              console.log(res);
+              setUser(res.data);              
+
+            }).catch((e=>{
+
+                    console.log('error',e); 
+            }));
+
+    }
 
     async function getDataFromApi(){
 
@@ -47,7 +64,7 @@ const Routing = () => {
    useEffect(()=>{
 
     getDataFromApi();
-
+    getNameFromUser();
    },[]);
 
     
@@ -56,15 +73,15 @@ const Routing = () => {
 
     <BrowserRouter>
     
-      <NavBar />
+      <NavBar user={user} setUser={setUser}/>
     
      <Routes>
 
-        <Route path='/' element={<App tempData={tempData} settempData={settempData} options={options} data={data} setData={setData}/>} />
-        <Route path='Formcontrole' element={<Formcontrole options={options} data={data} setData={setData}/>} />
+        <Route path='/' element={<App tempData={tempData} settempData={settempData} options={options} data={data} setData={setData} user={user}/>} />
+        <Route path='/Formcontrole' element={<Formcontrole options={options} data={data} setData={setData}/>} />
         <Route path='/products/:id' element={<ProductDetaile data={data}/>} />
         <Route path='/Register' element={<Register />} />
-        <Route path='/login' element={<Login />} />
+        <Route path='/login' element={<Login user={user}setUser={setUser} />} />
 
      </Routes>
    </BrowserRouter>

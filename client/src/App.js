@@ -6,7 +6,7 @@ import LoadingPage from './components/LoadingPage';
 
 
 
-function App({tempData,settempData,options,data,setData}) {
+function App({tempData,settempData,options,data,setData,user}) {
 
 
 console.log('data: ',data);
@@ -23,6 +23,7 @@ console.log("tempData :  ",tempData);
     options={options?options:[]}
     data={data}
     setData={setData}
+    user={user}
     />
 
      {(tempData.length>0)?(tempData.length>0?<Products data={tempData} />:<LoadingPage />):(data.length>0?<Products data={data} />:<LoadingPage />) }

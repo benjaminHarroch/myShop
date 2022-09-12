@@ -1,8 +1,11 @@
 import { Button } from "./Button";
 import { useNavigate } from "react-router-dom";
-import '../filescss/products.css'
+import '../filescss/products.css';
+import Popup from './Popup';
 
 const ProductCard =(props)=>{
+
+  const token=window.localStorage.getItem("x-access-token");
     
   const navigate=useNavigate();
 
@@ -25,7 +28,7 @@ const ProductCard =(props)=>{
 
           <h6>${props.price}</h6>
 
-          <Button id={props.id} data={props.data}/>
+          {token?<Button id={props.id} data={props.data}/>:<Popup />}
           <button onClick={()=>navigate(`/products/${props.id}`)}>detailes</button>
 
         </div>

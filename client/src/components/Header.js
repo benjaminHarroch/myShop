@@ -12,7 +12,7 @@ import Select from "@mui/material/Select";
 import FormControl from "@mui/material/FormControl";
 import { fontWeight } from "@mui/system";
 
-const Header = ({tempData,settempData,options,data,setData})=>{
+const Header = ({tempData,settempData,options,data,setData,user})=>{
 
 
   const handleSteOption=(value)=>{
@@ -31,7 +31,7 @@ const Header = ({tempData,settempData,options,data,setData})=>{
     return (
 
          <nav className="product-filter">
-                   <h1 style={{"color":"cornflowerblue", "font-weight":"600"}}>BRANDS-SHOP</h1>
+                   <h1 style={{"color":"cornflowerblue", "font-weight":"600"}}>{user?"hello " +user.userName:"BRANDS-SHOP"}</h1>
 
               <div className="sort">
                     <div className="collection-sort">

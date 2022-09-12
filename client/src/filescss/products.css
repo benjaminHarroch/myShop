@@ -37,7 +37,7 @@
     background-color: cornflowerblue;
     border-radius: 5px;
     cursor: pointer;
-
+    border: none;
   }
 
   .products button:hover{

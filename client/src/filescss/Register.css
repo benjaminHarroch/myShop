@@ -1,0 +1,76 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+ .RegisterPage{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 35em;
+    padding: 5em;
+    border: 1px solid lightblue;
+    border-radius: 2px;
+    margin-left: 30%;
+    margin-top: 5%;
+    background-color: lightblue;
+    box-shadow: 6px 5px lightblue;    
+    font-family: 'Lato', sans-serif
+
+ }
+
+ .RegisterPage>div{
+
+    padding: 1em;
+
+ }
+
+ .RegisterPage>div input{
+
+    display: block;
+    border: none;
+    font-size: 1.2em;
+    border-radius: 4px;
+    margin-top: 2px;
+    outline:none;
+ }
+
+
+ .RegisterPage>div label{
+    font-weight: 600;
+    color: black;
+ }
+
+
+
+ .RegisterPage .buttonRegister button{
+
+    background-color: black;
+    color: white;
+    box-shadow: 2px 1px black;
+    width: 15em;
+    border-radius: 4px;
+    padding: 0.6em;
+    font-weight: 600;
+}
+
+.RegisterPage .Image img{
+
+    
+    width: 105%;
+    border-radius: 50%;
+}
+
+.RegisterPage .buttonRegister button:hover{
+opacity: 0.8;
+cursor: pointer;
+}
+
+.error{
+
+color: red;
+font-weight: 600;
+}
+ 

@@ -5,11 +5,11 @@ import { useNavigate } from 'react-router';
 import Cart from './Cart';
 import "../filescss/NavBar.css";
 import CarriageContext from '../context/CarriageContext';
+import Logout from './Logout';
 
 
 
-
-const NavBar=()=>{
+const NavBar=({user,setUser})=>{
 
     const navigate =useNavigate();
     const {carriagekey} =useContext(CarriageContext);
@@ -46,6 +46,7 @@ const NavBar=()=>{
 
            <div className='navigetionBarNavBar'>
 
+              {user!=''?<Logout user={user}  setUser={setUser} />:<button className='navigateButtonNavBar' onClick={()=>{navigate('/login')}}> login </button>}
               <button className='navigateButtonNavBar' onClick={()=>{navigate('/FormControle')}}> Controle </button>
               <button className='navigateButtonNavBar' onClick={()=>{navigate('/')}}> Home </button>
 

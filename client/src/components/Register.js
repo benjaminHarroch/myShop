@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import "../filescss/FormControle.css"
 import axios from 'axios';
 import "../filescss/Register.css"
 
@@ -31,7 +30,7 @@ const Register =()=>{
             password
         }
        console.log(newUser);
-        axios.post(`http://localhost:7000/RegisterApi`,  newUser )
+        axios.post(`http://localhost:7000/api/auth/register`,  newUser )
             .then(res => {
               console.log(res);
               console.log(res.data);
@@ -43,27 +42,32 @@ const Register =()=>{
 
         <div className='RegisterPage'>
 
+            <div className="Image">
+            <img src="https://st2.depositphotos.com/4035913/6124/i/600/depositphotos_61243831-stock-photo-letter-s-logo.jpg"  alt="Logo Stock Photos, Royalty Free Logo Images | Depositphotos" ></img>
+               
+            </div>
+
             <div className="UserName">
-                <label></label>
+                <label>userName : </label>
                 <input onChange={(e)=>setUserName(e.target.value)}></input>
             </div>
 
             <div className="mail">
-                <label></label>
+                <label>mail :</label>
                 <input onChange={(e)=>setMail(e.target.value)}></input>
             </div>
 
             <div className="password">
-                <label></label>
+                <label>password:</label>
                 <input onChange={(e)=>setPassword(e.target.value)}></input>
             </div>
 
             <div className="password2">
-                <label></label>
+                <label>passord varification :</label>
                 <input onChange={(e)=>setPassword2(e.target.value)}></input>
             </div>
 
-            <div className='buttonLogIn'>
+            <div className='buttonRegister'>
                 <button onClick={(e)=>RegisterUser(e)}>Register</button>
             </div>
         </div>
