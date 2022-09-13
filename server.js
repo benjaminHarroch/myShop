@@ -12,7 +12,6 @@ const auth = require("./controllers/auth");
 
 
 
-console.log('model,',UserModel);
 
 require("dotenv").config();
 
@@ -197,7 +196,6 @@ app.get('*',(req,res)=>{
  
  })
 
- console.log("pdsg",process.env);
 
 
  //connet mongo atlas for deploying

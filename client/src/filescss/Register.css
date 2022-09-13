@@ -41,7 +41,8 @@
  .RegisterPage>div label{
     font-weight: 600;
     color: black;
- }
+    font-size: 14px; 
+    }
 
 
 

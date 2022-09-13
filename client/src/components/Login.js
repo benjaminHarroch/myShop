@@ -26,14 +26,13 @@ const Login =({user,setUser})=>{
 
         const newUser={
             userName,
-            mail,
             password
         }
        console.log(newUser);
 
         axios.post(`http://localhost:7000/api/auth/login`,  newUser )
             .then(res => {
-              console.log("respone",res.data.message);
+              console.log("respone",res);
               console.log("respone",res.data.user);
               window.localStorage.setItem("x-access-token",res.data.message);
               setUser(res.data.user);
@@ -58,11 +57,6 @@ const Login =({user,setUser})=>{
             <div className="UserName">
                 <label>userName</label>
                 <input onChange={(e)=>setUserName(e.target.value)}></input>
-            </div>
-
-            <div className="mail">
-                <label>mail</label>
-                <input onChange={(e)=>setMail(e.target.value)}></input>
             </div>
 
             <div className="password">

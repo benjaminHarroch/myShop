@@ -1,6 +1,6 @@
 
 import { useEffect } from "react";
-
+import RangeSlider from './RangeSlider'
 
 // ----- css ----- //
 import "../filescss/header.css";
@@ -53,29 +53,7 @@ const Header = ({tempData,settempData,options,data,setData,user})=>{
                     </FormControl>
                       </div>
 
-              <div className="collection-sort">
-
-                    <FormControl sx={{ m: 1, minWidth: 80 }}>
-                       <InputLabel id="demo-simple-select-label">sort:</InputLabel>
-                        <Select
-                         labelId="demo-simple-select-label"
-                         id="demo-simple-select"
-                         label="sort by:"
-                         onChange={()=>{console.log('secoind filterr')}}
-                        >
-                        
-                        <MenuItem value="Featured">Featured</MenuItem>
-                        <MenuItem value="best selling">best selling</MenuItem>
-                        <MenuItem value="alphabeticALly,A-Z">alphabeticALly,A-Z</MenuItem>
-                        <MenuItem value="alphabeticALly, Z-A">alphabeticALly, Z-A</MenuItem>
-                        <MenuItem value="price,low to high">price,low to high</MenuItem>
-                        <MenuItem value="price,high to low">price,high to low</MenuItem>
-                        <MenuItem value="/">date,new to old</MenuItem>
-                        <MenuItem value="/">date,old to new</MenuItem>
-
-                     </Select>
-                    </FormControl>
-              </div>
+                <div className="Slider"> <label>products with price between :</label><RangeSlider tempData={tempData} settempData={settempData} data={data}/></div>
              </div>
          </nav>
 
