@@ -103,7 +103,7 @@ import Select from '@mui/material/Select';
 
             
             console.log(window.localStorage.getItem("x-access-token"));
-            axios.post(`http://localhost:7000/api/product`, newProducts,{ headers: {"x-access-token":`${window.localStorage.getItem("x-access-token")}`}})
+            axios.post(`https://my-shop-xh1x.onrender.com/api/product`, newProducts,{ headers: {"x-access-token":`${window.localStorage.getItem("x-access-token")}`}})
             .then(res => {
 
                 //you cant use push because push return The new length property of the object

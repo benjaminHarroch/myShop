@@ -65,30 +65,3 @@ const Header = ({tempData,settempData,options,data,user})=>{
 export default Header;
 
 
-/*
-
-/*
-
-  <select onChange={(e)=>handleSteOption(e.target.value)}>
-            
-                       <option value="/">All items</option>
-                       {options?options.map((item)=>{
-                        return( <option value={`${item}`}>{item}</option>)}):console.log('nothing')}
- 
-                       </select>
-
-                       */
-
-
-                       /*
-                     <FormControl sx={{ m: 1, minWidth: 80 }}>
-                      <InputLabel id="demo-simple-select-label">filter by:</InputLabel>
-                         <Select
-                           labelId="demo-simple-select-label"
-                           id="demo-simple-select"
-                           label="filter by:"
-                           onChange={(e)=>handleSteOption(e.target.value)}
-                          >
-                           <MenuItem value={/}>All item</MenuItem>
-
-                          {options? options.map((item)=>{ <MenuItem value={item}>{item}</MenuItem> }:{console.log('nothing')})*/

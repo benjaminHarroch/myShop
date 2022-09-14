@@ -30,7 +30,7 @@ const Register =()=>{
             password
         }
        console.log(newUser);
-        axios.post(`http://localhost:7000/api/auth/register`,  newUser )
+        axios.post(`https://my-shop-xh1x.onrender.com/api/auth/register`,  newUser )
             .then(res => {
               console.log(res);
               console.log(res.data);

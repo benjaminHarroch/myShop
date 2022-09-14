@@ -30,7 +30,7 @@ const Login =({user,setUser})=>{
         }
        console.log(newUser);
 
-        axios.post(`http://localhost:7000/api/auth/login`,  newUser )
+        axios.post(`https://my-shop-xh1x.onrender.com/api/auth/login`,  newUser )
             .then(res => {
               console.log("respone",res);
               console.log("respone",res.data.user);

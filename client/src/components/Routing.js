@@ -24,7 +24,7 @@ const Routing = () => {
     async function getNameFromUser(){
 
       const token=window.localStorage.getItem("x-access-token");
-      {token&&axios.post(`http://localhost:7000/api/auth/getUserName`, {},{ headers: {"x-access-token":`${window.localStorage.getItem("x-access-token")}`}})
+      {token&&axios.post(`https://my-shop-xh1x.onrender.com/api/auth/getUserName`, {},{ headers: {"x-access-token":`${window.localStorage.getItem("x-access-token")}`}})
             .then(res => {
               console.log(res);
               setUser(res.data);              
@@ -40,7 +40,7 @@ const Routing = () => {
 
     try{
       
-      const response =await fetch("http://localhost:7000/api");
+      const response =await fetch("https://my-shop-xh1x.onrender.com//api");
       const data =  await response.json();
       const categories = data.map(p => p.category)
        .filter((value, index, array) => array.indexOf(value)===index);
