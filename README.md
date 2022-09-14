@@ -12,9 +12,9 @@ The store will have several interesting points:
 1. Authentication
 2. Navigation between routers
 3. Saving in a data base
-4. Use of HOOKS </p>
+4. Use of HOOKS 
 5.use of MATERIAL UI
-6.using npm for install different libraries
+6.using npm for install different libraries</p>
 
 <h5>To enter the project, go to the link: </h5>
  <p>https://my-shop-xh1x.onrender.com </p>
