@@ -61,7 +61,7 @@ const Login =({user,setUser})=>{
 
             <div className="password">
                 <label>password</label>
-                <input onChange={(e)=>setPassword(e.target.value)}></input>
+                <input type="password" onChange={(e)=>setPassword(e.target.value)}></input>
             </div>
 
             <div className='buttonRegister'>

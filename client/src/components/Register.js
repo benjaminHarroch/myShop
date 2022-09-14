@@ -59,12 +59,12 @@ const Register =()=>{
 
             <div className="password">
                 <label>password:</label>
-                <input onChange={(e)=>setPassword(e.target.value)}></input>
+                <input type="password" onChange={(e)=>setPassword(e.target.value)}></input>
             </div>
 
             <div className="password2">
                 <label>passord varification :</label>
-                <input onChange={(e)=>setPassword2(e.target.value)}></input>
+                <input type="password" onChange={(e)=>setPassword2(e.target.value)}></input>
             </div>
 
             <div className='buttonRegister'>

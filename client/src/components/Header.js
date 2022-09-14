@@ -1,6 +1,7 @@
 
 import { useEffect } from "react";
 import RangeSlider from './RangeSlider'
+import TextAnimation from "./TextAnimation";
 
 // ----- css ----- //
 import "../filescss/header.css";
@@ -30,7 +31,7 @@ const Header = ({tempData,settempData,options,data,user})=>{
     return (
 
          <nav className="product-filter">
-                   <h1 style={{"color":"cornflowerblue", "font-weight":"600"}}>{user?"hello " +user.userName:"BRANDS-SHOP"}</h1>
+                <h1 style={{"color":"cornflowerblue", "font-weight":"600"}}>{user?<TextAnimation text={"hello " + `${user.userName}`} />:<TextAnimation text={"Brands Shop"} />}</h1>
 
               <div className="sort">
                     <div className="collection-sort">
