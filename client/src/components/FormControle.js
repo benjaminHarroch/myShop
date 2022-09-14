@@ -33,6 +33,7 @@ import Select from '@mui/material/Select';
     //the code continue rapidly and finish to push a new product into the state.
 
     let flage =false;
+    
 
     function handleChange(){
 
