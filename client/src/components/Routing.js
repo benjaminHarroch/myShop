@@ -40,7 +40,7 @@ const Routing = () => {
 
     try{
       
-      const response =await fetch("https://my-shop-xh1x.onrender.com//api");
+      const response =await fetch("https://my-shop-xh1x.onrender.com/api");
       const data =  await response.json();
       const categories = data.map(p => p.category)
        .filter((value, index, array) => array.indexOf(value)===index);
