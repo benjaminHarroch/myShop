@@ -66,6 +66,7 @@ const Login =({user,setUser})=>{
 
             <div className='buttonRegister'>
                 <button onClick={(e)=>RegisterUser(e)}>Register</button>
+                <button className="buttontoRegister" onClick={()=>navigate('/register')}> new user ?</button>
             </div>
 
             <div className="error">

@@ -1,14 +1,13 @@
 import React from 'react'
 import { useContext ,useState } from 'react'
 import CarriageContext from '../context/CarriageContext';
+import { useNavigate } from 'react-router';
 import  '../filescss/cartcss.css'
-import axios from 'axios';
+import ShopCart from './ShopCart';
 
 
 ///// naterial UI
-import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-import Button from "@mui/material/Button";
 import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
@@ -19,6 +18,7 @@ function Cart() {
   //////function for componet  from material UI 
 
     const [stateDrawer, setStateDrawer] = useState(false);
+    const navigate =useNavigate();
   
     ///////////////////////////////
 
@@ -80,7 +80,7 @@ function Cart() {
                   <div className='cardPrice'> <p>{item.element.price}</p></div>
                   <div className='amount'> <p>{item.amount}</p></div>
               </div>
-         </div>
+              </div>
 
           <div className='cartPart2'> 
                 <div className='cardDeleteButton'> <button id={`${item.element._id}`} onClick={(e)=>searchInBucketandDelete(e.target.id)}><span id={`${item.element._id}`}  className="material-icons">delete_forever</span></button></div>
@@ -88,15 +88,17 @@ function Cart() {
                 <div className='total'> <p>{item.amount*item.element.price}</p></div>
 
           </div>
-
-
+       
      </div>
  )
 
 }
+
 ):<h1 className='emptyDrawer'>GO SHOOSE PRODUCTS </h1>
 }
    
+<div> <button className="buttonCartToPayment" onClick={()=>navigate('/shopCart')}> go to pay now </button> </div>
+
           </Drawer>
       
     </div>

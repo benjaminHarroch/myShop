@@ -28,7 +28,7 @@ const ProductCard =(props)=>{
 
           <h6>${props.price}</h6>
 
-          {token?<Button id={props.id} data={props.data}/>:<Popup />}
+          {token?<Button id={props.id} data={props.data}/>:<Popup styleobj={{color:"black" ,padding:"4px"}}/>}
           <button onClick={()=>navigate(`/products/${props.id}`)}>detailes</button>
 
         </div>

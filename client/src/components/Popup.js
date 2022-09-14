@@ -17,14 +17,15 @@ const style = {
   p: 4,
 };
 
-export default function BasicModal() {
+export default function BasicModal({styleobj}) {
+  console.log("styleobj",styleobj);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
     <div>
-      <Button style={{"color":"black"}} onClick={handleOpen}>add</Button>
+      <Button style={{"color":`${styleobj.color}`,"padding":`${styleobj.padding}`}} onClick={handleOpen}>add</Button>
       <Modal
         open={open}
         onClose={handleClose}

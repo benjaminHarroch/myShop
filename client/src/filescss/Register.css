@@ -46,7 +46,7 @@
 
 
 
- .RegisterPage .buttonRegister button{
+ .RegisterPage .buttonRegister button:first-child{
 
     background-color: black;
     color: white;
@@ -58,7 +58,6 @@
 }
 
 .RegisterPage .Image img{
-
     
     width: 105%;
     border-radius: 50%;
@@ -68,6 +67,21 @@
 opacity: 0.8;
 cursor: pointer;
 }
+
+.RegisterPage .buttontoRegister{
+
+   background-color: lightblue;
+   color:black;
+   opacity: 0.9;
+   font-size: 0.8em;
+   border: none;
+   margin-left: 10em;
+   margin-top: 1em;
+   padding: 0;
+   cursor: pointer;
+   font-weight: 600;
+}
+
 
 .error{
 

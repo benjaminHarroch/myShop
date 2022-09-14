@@ -10,9 +10,8 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import FormControl from "@mui/material/FormControl";
-import { fontWeight } from "@mui/system";
 
-const Header = ({tempData,settempData,options,data,setData,user})=>{
+const Header = ({tempData,settempData,options,data,user})=>{
 
 
   const handleSteOption=(value)=>{

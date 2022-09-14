@@ -1,0 +1,58 @@
+.shopCart{
+    display: flex;
+    width: 80%;
+    height: 80%;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 3%;
+}
+
+.productsChoosen{
+
+    padding: 3%;
+
+}
+.productsChoosenElement{
+
+    padding: 3%;
+    border-bottom: 1px solid black;
+
+}
+.productsChoosenElement .cardcategorydescription>div{
+
+    padding: 2%;
+}
+
+.productsChoosenElement .cardImage img {
+    width: 20%;
+    height: 20%;
+    padding: 10px;
+}
+
+.productsChoosenElement .category p{
+    font-weight: 500;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+
+}
+
+.Total{
+
+    padding: 5%;
+    border: 1px solid black;
+    border-radius: 4px;
+
+}
+
+.Total>div{
+
+    padding: 5%;
+
+}
+
+.Total div button{
+padding: 7%;
+background: cornflowerblue;
+border: none;
+border-radius: 7px;
+}

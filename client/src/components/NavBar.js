@@ -49,6 +49,7 @@ const NavBar=({user,setUser})=>{
               {user!=''?<Logout user={user}  setUser={setUser} />:<button className='navigateButtonNavBar' onClick={()=>{navigate('/login')}}> login </button>}
               <button className='navigateButtonNavBar' onClick={()=>{navigate('/FormControle')}}> Controle </button>
               <button className='navigateButtonNavBar' onClick={()=>{navigate('/')}}> Home </button>
+              <button className='navigateButtonNavBar' onClick={()=>{navigate('/shopCart')}}> shopCart </button>
 
            </div>
           

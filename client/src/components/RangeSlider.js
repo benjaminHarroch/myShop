@@ -11,7 +11,7 @@ function valuetext(value) {
 export default function RangeSlider({tempData, settempData,data}) {
 
 
-  const [value, setValue] = React.useState([20, 37]);
+  const [value, setValue] = React.useState([1, 1000]);
 
   function sortData(value){
 

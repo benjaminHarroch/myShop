@@ -1,15 +1,15 @@
 import React from 'react'
 import { useState ,useEffect}  from 'react';
-import { BrowserRouter, Route, Routes ,Link } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import axios from 'axios';
 import App from '../App';
-import  Cart  from './Cart';
 import  CarriageContext from '../context/CarriageContext';
 import Formcontrole from './FormControle';
 import ProductDetaile from './ProductDetaile';
 import NavBar from './NavBar';
 import Register from './Register';
 import Login from './Login'
+import ShopCart from './ShopCart';
 
 const Routing = () => {
 
@@ -23,8 +23,8 @@ const Routing = () => {
 
     async function getNameFromUser(){
 
-
-      axios.post(`http://localhost:7000/api/auth/getUserName`, {},{ headers: {"x-access-token":`${window.localStorage.getItem("x-access-token")}`}})
+      const token=window.localStorage.getItem("x-access-token");
+      {token&&axios.post(`http://localhost:7000/api/auth/getUserName`, {},{ headers: {"x-access-token":`${window.localStorage.getItem("x-access-token")}`}})
             .then(res => {
               console.log(res);
               setUser(res.data);              
@@ -32,7 +32,7 @@ const Routing = () => {
             }).catch((e=>{
 
                     console.log('error',e); 
-            }));
+            }));}
 
     }
 
@@ -82,6 +82,7 @@ const Routing = () => {
         <Route path='/products/:id' element={<ProductDetaile data={data}/>} />
         <Route path='/Register' element={<Register />} />
         <Route path='/login' element={<Login user={user}setUser={setUser} />} />
+        <Route path='/shopCart' element={<ShopCart />} />
 
      </Routes>
    </BrowserRouter>
