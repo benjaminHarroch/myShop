@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "../filescss/Register.css"
+import { useNavigate } from 'react-router';
 
 
+const Register =({user,setUser})=>{
 
-const Register =()=>{
 
-
+    const navigate=useNavigate();
     const [userName,setUserName]=useState('');
     const [mail,setMail]=useState('');
     const [password,setPassword]=useState('');
     const [password2,setPassword2]=useState('');
+    const [error ,setError]=useState('');
 
 
 
@@ -29,12 +31,18 @@ const Register =()=>{
             mail,
             password
         }
-       console.log(newUser);
-        axios.post(`https://my-shop-xh1x.onrender.com/api/auth/register`,  newUser )
+            axios.post(`https://my-shop-xh1x.onrender.com/api/auth/login`,  newUser )
             .then(res => {
-              console.log(res);
-              console.log(res.data);
-            })
+              console.log("respone",res);
+              console.log("respone",res.data.user);
+              window.localStorage.setItem("x-access-token",res.data.message);
+              setUser(res.data.user);
+              navigate('/');
+            }).catch(e=>{
+
+                setError(e.response.data.message)
+
+            });
 
     }
 

@@ -80,8 +80,8 @@ const Routing = () => {
         <Route path='/' element={<App tempData={tempData} settempData={settempData} options={options} data={data} setData={setData} user={user}/>} />
         <Route path='/Formcontrole' element={<Formcontrole options={options} data={data} setData={setData}/>} />
         <Route path='/products/:id' element={<ProductDetaile data={data}/>} />
-        <Route path='/Register' element={<Register />} />
-        <Route path='/login' element={<Login user={user}setUser={setUser} />} />
+        <Route path='/Register' element={<Register user={user} setUser={setUser}/>} />
+        <Route path='/login' element={<Login user={user} setUser={setUser} />} />
         <Route path='/shopCart' element={<ShopCart />} />
 
      </Routes>
